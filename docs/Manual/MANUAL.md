@@ -43,6 +43,7 @@
   * [14.1 BMS Editor crashing / not opening](#141-bms-editor-crashing-or-not-opening)
   * [14.2 Weird Normals / Triangulation](#142-weird-normals-or-triangulation)
   * [14.3 BMS Crashing](#143-bms-crashing)
+  * [14.4 Alpha Sorting](#144-alpha-sorting)
 
 ---
 
@@ -492,3 +493,7 @@ If your model works fine in the BMS Editor and displays correctly in the *Tactic
 * Check the ``Parent.dat``. If there is already an older version of a previous model you can reuse, try that one
 
 If you can't find the reason of the BMS crash, please report it with the the relevant ```_xlog.txt```, ```_crash.txt``` and ```_crash.dmp``` from your ```<Your Falcon BMS Directory>/User/Logs```.
+
+### 14.4 Alpha Sorting
+When exporting primitives individually (using the *Do not merge* option), the exporter uses the object's origin as the reference point for alpha sorting.
+Shift the origin in Blender to adjust the draw order of transparent geometry.
