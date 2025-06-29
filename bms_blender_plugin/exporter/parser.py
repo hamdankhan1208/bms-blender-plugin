@@ -173,9 +173,14 @@ def parse_slot(obj, nodes):
 def parse_switch(obj, nodes):
     """Adds a BML Switch to the BML node list"""
     print(f"{obj.name} is a SWITCH")
-    switch = get_switches()[obj.switch_list_index]
+    switch_number = getattr(obj, "switch_number", None)
+    switch_branch = getattr(obj, "switch_branch", None)
+    if switch_number is None or switch_branch is None:
+        switch = get_switches()[obj.switch_list_index]
+        switch_number = switch.switch_number
+        switch_branch = switch.branch
     nodes.append(
-        Switch(len(nodes), switch.switch_number, switch.branch, obj.switch_default_on)
+        Switch(len(nodes), switch_number, switch_branch, obj.switch_default_on)
     )
     return ParsedNodes(vertex_data=[], vertices_length=0, vertices_size=0)
 

@@ -120,6 +120,8 @@ def update_switch_or_dof_name(obj, context):
     name updates by the user."""
     if get_bml_type(obj) == BlenderNodeType.SWITCH:
         active_switch = get_switches()[obj.switch_list_index]
+        obj.switch_number = active_switch.switch_number
+        obj.switch_branch = active_switch.branch
         obj.name = f"Switch - {active_switch.name} ({active_switch.switch_number})"
     elif get_bml_type(obj) == BlenderNodeType.DOF:
         active_dof = get_dofs()[obj.dof_list_index]

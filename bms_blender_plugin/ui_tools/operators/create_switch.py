@@ -28,6 +28,9 @@ class CreateSwitch(Operator):
             f"Switch - {switch.name} ({switch.switch_number})", None
         )
         switch_object.bml_type = str(BlenderNodeType.SWITCH)
+        switch_object.switch_number = switch.switch_number
+        switch_object.switch_branch = switch.branch
+        switch_object.switch_list_index = 0
 
         if context.active_object:
             # assumes that every object is linked to at least one collection
