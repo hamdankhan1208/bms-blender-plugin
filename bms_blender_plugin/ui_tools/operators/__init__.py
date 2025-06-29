@@ -74,6 +74,16 @@ def register_blender_properties():
     bpy.types.Object.switch_default_on = bpy.props.BoolProperty(
         name="Default ON", description="The switch is ON by default", default=False
     )
+    bpy.types.Object.switch_number = bpy.props.IntProperty(
+        name="Switch Number",
+        description="Number of the selected switch",
+        default=0,
+    )
+    bpy.types.Object.switch_branch = bpy.props.IntProperty(
+        name="Switch Branch",
+        description="Branch number of the selected switch",
+        default=0,
+    )
 
     # DOFs
     bpy.types.Object.dof_list_index = bpy.props.IntProperty(
